@@ -1,0 +1,44 @@
+ <!--  php artisan make:component AdminLayout --> عشان اعمل فورم مشترك
+<!-- php artisan storage:link short cut زي اختصار بمجلد الببلك باشر علي المجلد الرئيسي الموجود بالستوريج هاد لعرض كود الصوره -->
+
+<!-- SELECT * FROM `posts` INNER JOIN categories; --> عشان اربط البوست مع الكاتيجوري
+<!-- SELECT posts.*,categories.name AS category_name
+FROM `posts`
+LEFT JOIN categories ON categories.id=posts.category_id; -->
+
+
+<!-- php artisan make:migration add_soft_deletes_to_posts_table  --table=posts-->
+<!-- php artisan make:scope AncientScope -->scope in laravel 10 لانشاء
+<!-- php artisan make:observer PostObserver --model=Post --> observer model
+
+<!-- php artisan tinker --> ====>
+App\Models\Profile::find(1)->user
+App\Models\User::find(1)->profile
+App\Models\Profile::forceCreate(['user_id'=>1,'first_name'=>'aya','last_name'=>'alkahlot','country'=>'ps','birthday'=>'2010-10-10'])
+App\Models\Category::find(1)->posts
+<!-- authenticaation   composer require laravel/breeze --dev -->
+
+Role::create(['name'=>'Admin'])
+
+<!-- ////////////////////////////upload image////////////////////////// -->
+
+<!-- $image_path = null; //في حاله انه م دخل علي البلوك
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid()) { //عشان اتاكد انه الملف مرفوع بدون مشاكل
+                // $image_path = $file->store('uploads');  //لتخزين الملف من مؤقت الي دائم
+                //  $image_path=$file->storePublicly('uploads') ;  //لتخزين الملف من مؤقت الي دائم
+                // $image_path = $file->storePublicly('uploads' , [
+                //     'disk' => 'uploads', ///////////config ======>file system
+            ]);
+            }
+        }
+                $image_path = $file->storePublicly('uploads' , [
+                    'disk' => 'public',
+                ]);
+        $post = Post::create([
+
+            'image' => $image_path,
+
+        ]); -->
+
